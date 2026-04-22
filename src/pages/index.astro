@@ -1,7 +1,25 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro"
+import {getCollection, type CollectionEntry} from "astro:content";
+const posts: CollectionEntry<"blog">[] = await getCollection ("blog");
+
+const latest = posts.sort((a: CollectionEntry<"blog">, b:CollectionEntry<"blog">) => b.data.date.getTime() - a.data.date.getTime()).slice(0, 3);
+const categories = [...new Set(posts.map((p: CollectionEntry<"blog">) => p.data.category))];
+const getPostSlug = (id: string) => id.replace (".mdx", "").replace(".md", "");
+
 ---
 
 <MainLayout title="Home">
-<p>Hola soy la Home</p>
+<section>
+<h2>útlimos posts</h2>
+<ul>
+{latest.map((post: CollectionEntry<"blog">) => (
+    <li>
+    <a href={`/blog/${getPostSlug(post.id)}`}>
+    <p>{post.data.title}</p>
+    </a>
+    </li>
+))}</ul>
+</section>
+<p>Bienvenidos al post de desahogo sentimental</p>
 </MainLayout>
