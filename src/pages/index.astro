@@ -3,7 +3,7 @@ import MainLayout from "../layouts/MainLayout.astro"
 import {getCollection, type CollectionEntry} from "astro:content";
 const posts: CollectionEntry<"blog">[] = await getCollection ("blog");
 
-const latest = posts.sort((a: CollectionEntry<"blog">, b:CollectionEntry<"blog">) => b.data.date.getTime() - a.data.date.getTime()).slice(0, 3);
+const latest = posts.sort((a: CollectionEntry<"blog">, b:CollectionEntry<"blog">) => b.data.date.getTime() - a.data.date.getTime()).slice(0, 4);
 const categories = [...new Set(posts.map((p: CollectionEntry<"blog">) => p.data.category))];
 const getPostSlug = (id: string) => id.replace (".mdx", "").replace(".md", "");
 
