@@ -1,3 +1,9 @@
 ---
 const {subtitle, date, category} = Astro.props
 ---
+<article>
+<h2>{subtitle}</h2>
+<p>{category}</p>
+<p>{date}</p>
+<slot />
+</article>
