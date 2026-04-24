@@ -1,14 +1,36 @@
 ---
-
+import MainLayout from "../layouts/MainLayout.astro";
 ---
 <hmtl lang="es">
 <head>
 <meta charset="utf-8" />
-<link rel="icon" type="image/svg+xml" href="favico.svg" />
+<link rel="icon" type="image/png" href="https://res.cloudinary.com/du5e2crvt/image/upload/v1777023653/Captura_de_pantalla_2026-04-24_114038_ryb6du.png" />
 <meta name="viewport" content="width=device-width" />
 <title>ASTRO</title>
 </head>
+<MainLayout title="Quiénes somos">
 <body>
- <h1> About </h1>
+  <section class="about">
+    <p>
+      Somos un grupo de personas que un día decidió parar. Parar de consumir sin sentido, 
+      de relacionarnos con prisa, de sentirnos invisibles en un mundo que premia el ruido 
+      y olvida la ternura.
+    </p>
+    <p>
+      Estamos cansados de una sociedad que confunde el valor de las personas con lo que 
+      producen o aparentan. Donde el ego va por delante y la vulnerabilidad se esconde. 
+      Donde es más fácil comprar algo nuevo que cuidar lo que ya tienes, incluidas las personas.
+    </p>
+    <p>
+      <b><em>blogLove</em></b> nació de esa incomodidad. De la necesidad de tener un espacio honesto donde 
+      escribir lo que se siente de verdad, sin filtros ni performance. Un refugio pequeño 
+      contra la superficialidad.
+    </p>
+    <p class="about-closing">
+      Si también estás harto del usar y tirar, aquí tienes tu sitio.
+    </p>
+  </section>
 </body>
+</MainLayout>
+
 </html>
