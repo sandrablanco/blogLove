@@ -8,18 +8,83 @@ const categories = [...new Set(posts.map((p: CollectionEntry<"blog">) => p.data.
 const getPostSlug = (id: string) => id.replace (".mdx", "").replace(".md", "");
 
 ---
-
+<meta charset="utf-8" />
 <MainLayout title="Home">
-<section>
+<section class="postGrid">
 <h2>Últimos posts</h2>
+<p>Bienvenidos a las páginas que te servirán de refugio y desahogo</p>
 <ul>
 {latest.map((post: CollectionEntry<"blog">) => (
     <li>
-    <a href={`/blog/${getPostSlug(post.id)}`}>
-    <p>{post.data.title}</p>
+    <a href={`/blog/${getPostSlug(post.id)}`} class="card">
+    <span class="card-category">{post.data.category}</span>
+    <h3 class="card-title">{post.data.title}</h3>
+    <p class="card-subtitle">{post.data.subtitle}</p>
+    <time class="card-date"> {post.data.date.toLocaleDateString("es-ES", { day: "numeric", month: "long", year: "numeric" })}
+    </time>
     </a>
     </li>
 ))}</ul>
 </section>
-<p>Bienvenidos a las páginas que te servirán de refugio y desahogo</p>
 </MainLayout>
+<style>
+.postGrid {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    padding: 30px 16px;
+}
+
+.card {
+    display: block;
+    width: 100%;
+    max-width: 520px;
+    padding: 30px 33px;
+    text-decoration: none;
+    border-radius: 18px;
+    border: 1px solid rgba(201, 81, 111, 0.12);
+    box-shadow:
+      0 2px 8px rgba(0, 0, 0, 0.04),
+      0 8px 32px rgba(201, 81, 111, 0.07);
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+  .card:hover {
+    box-shadow:
+      0 4px 16px rgba(0, 0, 0, 0.07),
+      0 12px 40px rgba(201, 81, 111, 0.13);
+    transform: translateY(-2px);
+  }
+
+  .card-category {
+    font-size: 12px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: #c9516f;
+    font-family: Arial, sans-serif;
+  }
+
+  .card-title {
+    font-family: Georgia, serif;
+    font-size: 18px;
+    font-weight: 400;
+    color: #1a1a1a;
+    margin: 8px 0 6px;
+    line-height: 1.4;
+  }
+
+  .card-subtitle {
+    font-family: Georgia, serif;
+    font-size: 14px;
+    color: #888;
+    font-style: italic;
+    margin-bottom: 14px;
+    line-height: 1.5;
+  }
+
+  .card-date {
+    font-size: 11px;
+    color: #bbb;
+    font-family: Arial, sans-serif;
+  }
