@@ -1,16 +1,18 @@
 ---
 import MainLayout from "../layouts/MainLayout.astro";
 ---
+<meta charset="utf-8" />
 <hmtl lang="es">
 <head>
 <meta charset="utf-8" />
 <link rel="icon" type="image/png" href="https://res.cloudinary.com/du5e2crvt/image/upload/v1777023653/Captura_de_pantalla_2026-04-24_114038_ryb6du.png" />
 <meta name="viewport" content="width=device-width" />
-<title>ASTRO</title>
+<title>Quiénes somos</title>
 </head>
-<MainLayout title="Quiénes somos">
+<MainLayout>
 <body>
-  <section class="about">
+  <section class="aboutMain">
+  <h1 class="title">Quienes somos</h1>
     <p>
       Somos un grupo de personas que un día decidió parar. Parar de consumir sin sentido, 
       de relacionarnos con prisa, de sentirnos invisibles en un mundo que premia el ruido 
@@ -34,3 +36,30 @@ import MainLayout from "../layouts/MainLayout.astro";
 </MainLayout>
 
 </html>
+<style>
+
+.title {
+  text-align: justify;
+  font-family: Georgia, serif;
+  font-size: 25px;
+  font-weight: 400;
+  margin: 8px 0 6px;
+  line-height: 1.4;
+  background: linear-gradient(to bottom, #342f2f, #fb90ab);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+.aboutMain {
+    display: block;
+    width: 100%;
+    max-width: 520px;
+    padding: 30px 33px;
+    border-radius: 18px;
+    border: 1px solid rgba(201, 81, 111, 0.12);
+    box-shadow:
+     0 2px 8px rgba(0, 0, 0, 0.04),
+     0 8px 32px rgba(201, 81, 111, 0.07);
+    text-align: justify; 
+}
+</style>

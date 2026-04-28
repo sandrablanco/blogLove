@@ -11,7 +11,7 @@ const getPostSlug = (id: string) => id.replace (".mdx", "").replace(".md", "");
 <meta charset="utf-8" />
 <MainLayout title="Home">
 <section class="postGrid">
-<h2>Últimos posts</h2>
+<h2 class="h2">Últimos posts</h2>
 <p>Bienvenidos a las páginas que te servirán de refugio y desahogo</p>
 <ul>
 {latest.map((post: CollectionEntry<"blog">) => (
@@ -34,6 +34,21 @@ const getPostSlug = (id: string) => id.replace (".mdx", "").replace(".md", "");
     align-items: center;
     gap: 30px;
     padding: 30px 16px;
+}
+
+.h2{
+font-family: Georgia, serif;
+font-size: 25px;
+background: linear-gradient(to bottom, #342f2f, #fb90ab);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
 }
 
 .card {
@@ -68,8 +83,11 @@ const getPostSlug = (id: string) => id.replace (".mdx", "").replace(".md", "");
   .card-title {
     font-family: Georgia, serif;
     font-size: 18px;
+    background: linear-gradient(to bottom, #342f2f, #fb90ab);
+     -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
     font-weight: 400;
-    color: #1a1a1a;
     margin: 8px 0 6px;
     line-height: 1.4;
   }
@@ -88,3 +106,4 @@ const getPostSlug = (id: string) => id.replace (".mdx", "").replace(".md", "");
     color: #bbb;
     font-family: Arial, sans-serif;
   }
+</style>
